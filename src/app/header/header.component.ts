@@ -11,11 +11,11 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 
 export class HeaderComponent {
-  @Output() featureSelected: EventEmitter<string> = new EventEmitter(); 
+  // @Output() featureSelected: EventEmitter<string> = new EventEmitter(); 
   // @Output() shoppingListClickedEvent: EventEmitter<any> = new EventEmitter(); 
   collapsed = true;
 
-  onSelectFeature(feature: string){
-    this.featureSelected.emit(feature);
-  }
+  // onSelectFeature(feature: string){
+  //   this.featureSelected.emit(feature);
+  // }
 }
