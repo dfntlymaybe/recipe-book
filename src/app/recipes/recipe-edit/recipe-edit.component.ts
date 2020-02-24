@@ -16,7 +16,6 @@ export class RecipeEditComponent implements OnInit {
       (urlParams: Params)=>{
         this.id = +urlParams['id'];
         this.editMode = urlParams['id'] != null;
-        console.log(this.editMode + ' - ' + this.id)
       })
   }
 
