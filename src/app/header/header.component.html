@@ -6,7 +6,7 @@
       </button>
       <a [routerLink]="['/']" class="navbar-brand">Recipe Book</a>
     </div>
-    
+
     <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
       <ul class="nav navbar-nav">
         <li routerLinkActive="active"><a [routerLink]="['/recipes']">Recipes</a></li>
@@ -17,10 +17,10 @@
           <a class="dropdown-tggle" role="button" >Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a >Save Data</a></li>
-            <li><a >Save Data</a></li>
+            <li><a >Fetch Data</a></li>
           </ul>
         </li>
       </ul>
-    </div> 
+    </div>
   </div>
 </nav>
