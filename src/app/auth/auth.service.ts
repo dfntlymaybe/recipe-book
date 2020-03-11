@@ -12,39 +12,31 @@ export class AuthService {
   user = new Subject<User>();
   constructor(private http: HttpClient){}
 
-  signUp(email: string, password: string): Observable<AuthResponse>{
-    return this.http.post<AuthResponse>(
-      env.signUpUrl,
-      {
-        email: email,
-        password: password,
-        returnSecureToken: true
-      }).pipe(catchError(this.handleError),tap(resData => {
-        this.handleAuth(
-          resData.email,
-          resData.localId,
-          resData.idToken,
-          +resData.expiresIn
-        )
-      })
-    )
-  }
-  signIn(email: string, password: string): Observable<AuthResponse>{
-    return this.http.post<AuthResponse>(
-      env.signInUrl,
-      {
-        email: email,
-        password: password,
-        returnSecureToken: true
-      }).pipe(catchError(this.handleError),tap(resData => {
-        this.handleAuth(
-          resData.email,
-          resData.localId,
-          resData.idToken,
-          +resData.expiresIn
-        )
-      }))
-  }
+  sendAuthReq(
+    isLoginMode: boolean,
+    email: string,
+    password: string): Observable<AuthResponse>{
+      if(isLoginMode){
+        const endpointurl = env.signInUrl;
+      }else{
+        const endpointurl = env.signUpUrl;
+      }
+      return this.http.post<AuthResponse>(
+        endpointurl,
+        {
+          email: email,
+          password: password,
+          returnSecureToken: true
+        }).pipe(catchError(this.handleError),tap(resData => {
+          this.handleAuth(
+            resData.email,
+            resData.localId,
+            resData.idToken,
+            +resData.expiresIn
+          )
+        })
+      )
+    }
   private handleAuth(email: string, id: string, token: string, expiresIn:number){
     const expirationDate = new Date(
       new Date().getTime() + +expiresIn * 1000
@@ -75,4 +67,37 @@ export class AuthService {
     }
     return throwError(errorMessage);
   }
+  // signUp(email: string, password: string): Observable<AuthResponse>{
+  //   return this.http.post<AuthResponse>(
+  //     env.signUpUrl,
+  //     {
+  //       email: email,
+  //       password: password,
+  //       returnSecureToken: true
+  //     }).pipe(catchError(this.handleError),tap(resData => {
+  //       this.handleAuth(
+  //         resData.email,
+  //         resData.localId,
+  //         resData.idToken,
+  //         +resData.expiresIn
+  //       )
+  //     })
+  //   )
+  // }
+  // signIn(email: string, password: string): Observable<AuthResponse>{
+  //   return this.http.post<AuthResponse>(
+  //     env.signInUrl,
+  //     {
+  //       email: email,
+  //       password: password,
+  //       returnSecureToken: true
+  //     }).pipe(catchError(this.handleError),tap(resData => {
+  //       this.handleAuth(
+  //         resData.email,
+  //         resData.localId,
+  //         resData.idToken,
+  //         +resData.expiresIn
+  //       )
+  //     }))
+  // }
 }
