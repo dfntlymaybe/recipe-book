@@ -16,13 +16,8 @@ export class AuthService {
     isLoginMode: boolean,
     email: string,
     password: string): Observable<AuthResponse>{
-      if(isLoginMode){
-        const endpointurl = env.signInUrl;
-      }else{
-        const endpointurl = env.signUpUrl;
-      }
       return this.http.post<AuthResponse>(
-        endpointurl,
+        isLoginMode ?  env.signInUrl :env.signUpUrl,
         {
           email: email,
           password: password,
