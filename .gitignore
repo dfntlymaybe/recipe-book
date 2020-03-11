@@ -46,4 +46,4 @@ testem.log
 Thumbs.db
 
 #api keys
-.env
+.env.ts
