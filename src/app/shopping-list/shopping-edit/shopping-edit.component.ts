@@ -44,9 +44,6 @@ export class ShoppingEditComponent implements OnInit {
     }
     this.onClear();
   }
-  // clearList(): void{
-  //   this.shoppingListService.clearList();
-  // }
   onDelete(): void{
     this.shoppingListService.removeIngredient(this.edittedItemINdex);
     this.onClear();
