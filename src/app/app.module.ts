@@ -6,10 +6,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { RecipesRoutingModule } from './recipes/recipes-routing.module'; 
 import { RecipeModule } from './recipes/recipe.module';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { AuthComponent } from "./auth/auth.component";
 import { LoadingSpinnerComponent } from "./shared/loading-spinners/loading-spinners.component";
 import { AlertComponent } from './shared/alert/alert.component';
@@ -22,8 +21,6 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
     DropdownDirective,
     AuthComponent,
     LoadingSpinnerComponent,
@@ -37,7 +34,8 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     HttpClientModule,
     AppRoutingModule,
     RecipeModule,
-    RecipesRoutingModule
+    RecipesRoutingModule,
+    ShoppingListModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, 
