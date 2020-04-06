@@ -14,7 +14,6 @@ export class DataStorageService {
               private recipeService: RecipeService,
               private authService: AuthService){
   }
-
   storeRecipes():void{
     const recipes = this.recipeService.getRecipes();
     this.http.put(
@@ -27,7 +26,9 @@ export class DataStorageService {
     .pipe(
       map(recipes => {
         return recipes.map(recipe => {
-          return {...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []};
+          return {
+            ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []
+          };
         });
       }),
       tap(recipes => {

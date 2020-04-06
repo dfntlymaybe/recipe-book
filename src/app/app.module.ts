@@ -4,36 +4,27 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
+import { RecipesRoutingModule } from './recipes/recipes-routing.module'; 
+import { RecipeModule } from './recipes/recipe.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
-import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.component';
-import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { DropdownDirective } from './shared/dropdown.directive';
-import { SelectRecipeComponent } from './recipes/select-recipe/select-recipe.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { AuthComponent } from "./auth/auth.component";
 import { LoadingSpinnerComponent } from "./shared/loading-spinners/loading-spinners.component";
-import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AlertComponent } from './shared/alert/alert.component';
 import { PlaceholderDirective } from './shared/placeholder/placeholder.directive';
+import { DropdownDirective } from './shared/dropdown.directive';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeDetailsComponent,
-    RecipeItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective,
-    SelectRecipeComponent,
-    RecipeEditComponent,
     AuthComponent,
     LoadingSpinnerComponent,
     AlertComponent,
@@ -44,7 +35,9 @@ import { PlaceholderDirective } from './shared/placeholder/placeholder.directive
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RecipeModule,
+    RecipesRoutingModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, 
@@ -54,4 +47,4 @@ import { PlaceholderDirective } from './shared/placeholder/placeholder.directive
   bootstrap: [AppComponent],
   entryComponents: [AlertComponent]
 })
-export class AppModule { }
+export class AppModule {}
