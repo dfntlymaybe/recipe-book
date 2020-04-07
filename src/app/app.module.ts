@@ -7,13 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecipesRoutingModule } from './recipes/recipes-routing.module'; 
 import { RecipeModule } from './recipes/recipe.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
+import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AuthComponent } from "./auth/auth.component";
-import { LoadingSpinnerComponent } from "./shared/loading-spinners/loading-spinners.component";
-import { AlertComponent } from './shared/alert/alert.component';
-import { PlaceholderDirective } from './shared/placeholder/placeholder.directive';
-import { DropdownDirective } from './shared/dropdown.directive';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 
@@ -21,11 +18,7 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
   declarations: [
     AppComponent,
     HeaderComponent,
-    DropdownDirective,
     AuthComponent,
-    LoadingSpinnerComponent,
-    AlertComponent,
-    PlaceholderDirective
   ],
   imports: [
     BrowserModule,
@@ -35,7 +28,8 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     AppRoutingModule,
     RecipeModule,
     RecipesRoutingModule,
-    ShoppingListModule
+    ShoppingListModule,
+    SharedModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, 
@@ -43,6 +37,5 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     multi: true
   }],
   bootstrap: [AppComponent],
-  entryComponents: [AlertComponent]
 })
 export class AppModule {}
