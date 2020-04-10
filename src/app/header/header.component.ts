@@ -16,15 +16,15 @@ import { User } from '../auth/user.model';
 })
 
 export class HeaderComponent implements OnInit, OnDestroy {
+
   collapsed = true;
   isLoggedIn = false;
   authSub: Subscription;
 
   constructor(
     private dsService: DataStorageService,
-    private authService: AuthService) {
-
-  }
+    private authService: AuthService
+    ) { }
   ngOnInit(){
     this.authSub = this.authService.user.subscribe(user => {
       this.isLoggedIn = !!user;

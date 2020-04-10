@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { Observable, throwError, BehaviorSubject } from "rxjs";
-import { catchError, tap } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
-import { env } from "../../../.env";
-import { User } from "./user.model";
-import { AuthResponse } from "./auth-response.model";
+import { env } from '../../../.env';
+import { User } from './user.model';
+import { AuthResponse } from './auth-response.model';
 
-@Injectable({providedIn: "root"})
+@Injectable({providedIn: 'root'})
 export class AuthService {
   user = new BehaviorSubject<User>(null);
   tokenExpirationTimer: any;

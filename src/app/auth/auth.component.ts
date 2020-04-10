@@ -1,12 +1,12 @@
-import { Component, OnInit, OnDestroy, ComponentFactoryResolver, ViewChild } from "@angular/core";
-import { NgForm } from "@angular/forms";
-import { Router } from "@angular/router";
-import { Subscription } from "rxjs";
+import { Component, OnInit, OnDestroy, ComponentFactoryResolver, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
-import { AuthService } from "./auth.service";
-import { AuthResponse } from "./auth-response.model";
-import { AlertComponent } from "../shared/alert/alert.component";
-import { PlaceholderDirective } from "../shared/placeholder/placeholder.directive";
+import { AuthService } from './auth.service';
+import { AuthResponse } from './auth-response.model';
+import { AlertComponent } from '../shared/alert/alert.component';
+import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
 
 @Component({
     selector: 'app-auth',
@@ -15,6 +15,7 @@ import { PlaceholderDirective } from "../shared/placeholder/placeholder.directiv
 })
 
 export class AuthComponent implements OnInit, OnDestroy{
+
   isLoginMode = true;
   isLoading = false;
   errorMessage: string = null;
@@ -26,7 +27,6 @@ export class AuthComponent implements OnInit, OnDestroy{
     private router: Router,
     private componentFactoryResolver: ComponentFactoryResolver){
   }
-
   onSwitchMode():void{
     this.isLoginMode = !this.isLoginMode;
   }
@@ -65,9 +65,7 @@ export class AuthComponent implements OnInit, OnDestroy{
       viewContainerRef.clear();
     })
   }
-  ngOnInit(){
-
-  }
+  ngOnInit(){}
   ngOnDestroy(){
     if(this.closeSub){
       this.closeSub.unsubscribe();

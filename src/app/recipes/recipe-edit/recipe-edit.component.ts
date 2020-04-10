@@ -12,13 +12,14 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./recipe-edit.component.css']
 })
 export class RecipeEditComponent implements OnInit {
+
   id: number;
   editMode: boolean = false;
   recipeForm: FormGroup;
+  
   constructor(private activatedRoute: ActivatedRoute,
               private recipeService: RecipeService,
               private router: Router) { }
-
   ngOnInit() {
     this.activatedRoute.params.subscribe(
       (urlParams: Params)=>{
@@ -50,7 +51,6 @@ export class RecipeEditComponent implements OnInit {
         }
       }
     }
-
     this.recipeForm = new FormGroup({
       name: new FormControl(recipeName, Validators.required),
       description: new FormControl(recipeDescription, Validators.required),
@@ -83,5 +83,4 @@ export class RecipeEditComponent implements OnInit {
     }
     this.onCancel()
   }
-
 }
