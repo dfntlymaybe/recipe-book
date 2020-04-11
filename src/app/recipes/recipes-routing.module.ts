@@ -9,7 +9,7 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { RecipeResolverService } from './recipe-resolver.service'
 
 const recipeRoutes = [
-  {path: 'recipes',
+  {path: '',
   component: RecipesComponent, 
   canActivate: [AuthGuardService], 
   children:[
